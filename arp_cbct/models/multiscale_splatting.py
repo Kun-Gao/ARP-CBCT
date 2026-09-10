@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, replace
+from dataclasses import dataclass
 
 import torch
 from torch import nn
 
 from ..geometry import ReconstructionGrid
-from .primitive_proposal import PrimitiveSet
+from .primitive_types import PrimitiveSet
 from .primitive_splatting import PrimitiveSplatting
 
 
@@ -31,24 +31,6 @@ class MultiScaleSplatOutput:
     mid_weight: torch.Tensor
     coarse_grid: ReconstructionGrid
     mid_grid: ReconstructionGrid
-
-    def zero_scale(self, scale: str) -> "MultiScaleSplatOutput":
-        if scale == "coarse":
-            return replace(
-                self,
-                coarse_feature=torch.zeros_like(self.coarse_feature),
-                coarse_density=torch.zeros_like(self.coarse_density),
-                coarse_weight=torch.zeros_like(self.coarse_weight),
-            )
-        if scale == "mid":
-            return replace(
-                self,
-                mid_feature=torch.zeros_like(self.mid_feature),
-                mid_density=torch.zeros_like(self.mid_density),
-                mid_weight=torch.zeros_like(self.mid_weight),
-            )
-        raise ValueError(f"Unknown scale: {scale!r}")
-
 
 class PrimitiveMultiScaleSplatting(nn.Module):
     """Splat one continuous primitive set onto two physical grids.

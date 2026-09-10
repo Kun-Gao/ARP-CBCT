@@ -4,7 +4,7 @@ import torch
 from torch import nn
 
 from ..geometry import ReconstructionGrid
-from .primitive_proposal import PrimitiveSet
+from .primitive_types import PrimitiveSet
 
 
 def _chunk_contributions(position, support, confidence, center_lo, spacing_xyz, shape_zyx, start, requested_stop, max_chunk_voxels, support_basis=None):

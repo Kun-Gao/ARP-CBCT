@@ -3,10 +3,10 @@ from __future__ import annotations
 import torch
 from torch import nn
 
-from .primitive_proposal import PrimitiveSet
+from .primitive_types import PrimitiveSet
 
 
-class StructuredPrimitiveRefinementV2(nn.Module):
+class PrimitiveRefinement(nn.Module):
     """Interaction-conditioned refinement that cannot cross hypothesis intervals."""
 
     def __init__(
@@ -36,7 +36,7 @@ class StructuredPrimitiveRefinementV2(nn.Module):
 
     def forward(self, p: PrimitiveSet) -> PrimitiveSet:
         if p.alpha is None or p.alpha_base is None:
-            raise ValueError("V2 refinement requires alpha and alpha_base")
+            raise ValueError("Primitive refinement requires alpha and alpha_base")
         raw = self.head(p.feature)
         normalized = ((p.alpha - p.alpha_base) / self.max_delta_alpha).clamp(-0.999, 0.999)
         alpha = p.alpha_base + self.max_delta_alpha * torch.tanh(torch.atanh(normalized) + raw[..., 0])

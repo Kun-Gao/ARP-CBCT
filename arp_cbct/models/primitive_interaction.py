@@ -3,13 +3,13 @@ from __future__ import annotations
 import torch
 from torch import nn
 
-from .primitive_proposal import PrimitiveSet
+from .primitive_types import PrimitiveSet
 
 
 def knn_primitives(positions: torch.Tensor, k: int, method: str = "chunked_exact", chunk_size: int = 512) -> tuple[torch.Tensor, torch.Tensor]:
     """Exact KNN without ever materializing the complete N x N matrix."""
     if method != "chunked_exact":
-        raise ValueError(f"CORE_V1 supports knn_method=chunked_exact, got {method!r}")
+        raise ValueError(f"ARP-CBCT supports knn_method=chunked_exact, got {method!r}")
     if positions.ndim != 3 or positions.shape[-1] != 3:
         raise ValueError("positions must be [B,N,3]")
     b, n, _ = positions.shape

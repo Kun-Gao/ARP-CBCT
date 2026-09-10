@@ -5,7 +5,7 @@ import torch.nn.functional as F
 from torch import nn
 
 from ..geometry import ProjectionGeometry, project_world_to_detector
-from .primitive_proposal import PrimitiveSet
+from .primitive_types import PrimitiveSet
 
 
 class MultiScalePrimitiveQuery(nn.Module):

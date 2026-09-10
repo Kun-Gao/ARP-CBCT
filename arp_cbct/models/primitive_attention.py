@@ -4,7 +4,7 @@ import torch
 from torch import nn
 
 from ..geometry import ProjectionGeometry, ReconstructionGrid
-from .primitive_proposal import PrimitiveSet
+from .primitive_types import PrimitiveSet
 
 
 class GeometryAwareAttention(nn.Module):

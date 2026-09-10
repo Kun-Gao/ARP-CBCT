@@ -4,12 +4,12 @@ import torch
 import torch.nn.functional as F
 from torch import nn
 
-from .hierarchical_decoder3d import HierarchicalDecoder3D, ResidualBlock3D, _groups
+from .hierarchical_decoder import HierarchicalDecoder3D, _groups
 from .multiscale_splatting import MultiScaleSplatOutput
 
 
 class BalancedHierarchicalDecoder3D(HierarchicalDecoder3D):
-    """V3 decoder with independently normalized coarse and primitive mid paths."""
+    """Decoder with independently normalized coarse and primitive mid paths."""
 
     def __init__(self, *args, mid_channels: int = 64, **kwargs):
         super().__init__(*args, mid_channels=mid_channels, **kwargs)

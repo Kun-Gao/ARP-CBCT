@@ -4,7 +4,7 @@ This repository contains the model-only PyTorch implementation of:
 
 **ARP-CBCT: Adaptive Ray Primitive Representation for Sparse-view CBCT Reconstruction**
 
-The released architecture is the complete `arp_cbct_v4_balanced` model used for the reported 20-, 10-, and 5-view experiments. Training, evaluation, data-preparation code, checkpoints, and private clinical data are intentionally not included at this stage. The complete implementation will be made publicly available upon acceptance of the paper.
+This repository contains the complete ARP-CBCT architecture used for the reported 20-, 10-, and 5-view experiments. Training, evaluation, data-preparation code, checkpoints, and private clinical data are intentionally not included at this stage. The complete implementation will be made publicly available upon acceptance of the paper.
 
 ## What Is Included
 
@@ -27,18 +27,19 @@ arp_cbct/
 ├── geometry.py
 ├── model.py
 └── models/
-    ├── arp_cbct_v4_balanced.py
-    ├── arp_cbct_v3.py
-    ├── arp_cbct_v2.py
-    ├── encoder2d.py
+    ├── encoder.py
     ├── geometry_conditioning.py
-    ├── primitive_proposal_v2.py
+    ├── primitive_types.py
+    ├── primitive_proposal.py
     ├── primitive_query.py
     ├── primitive_attention.py
     ├── primitive_interaction.py
-    ├── primitive_refinement_v2.py
+    ├── primitive_refinement.py
     ├── primitive_splatting.py
-    └── hierarchical_decoder_balanced.py
+    ├── multiscale_splatting.py
+    ├── hierarchical_decoder.py
+    ├── decoder.py
+    └── fusion.py
 ```
 
 ## Dependency
@@ -60,7 +61,7 @@ config = get_default_config()
 model = ARPCBCT(config)
 ```
 
-The default configuration constructs the exact model variant used for the formal experiments, with 8,192 adaptive primitives and a multi-scale reconstruction hierarchy.
+The default configuration constructs the exact model used for the formal experiments, with 8,192 adaptive primitives and a multi-scale reconstruction hierarchy.
 
 ## Forward Interface
 

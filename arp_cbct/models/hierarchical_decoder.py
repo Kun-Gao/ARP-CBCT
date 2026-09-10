@@ -44,7 +44,7 @@ class HierarchicalDecoder3D(nn.Module):
         super().__init__()
         if high_channels > max_fullres_channels:
             raise ValueError(
-                f"V3 high-resolution channels ({high_channels}) exceed structural limit ({max_fullres_channels})"
+                f"High-resolution channels ({high_channels}) exceed structural limit ({max_fullres_channels})"
             )
         self.high_channels = int(high_channels)
         self.max_fullres_channels = int(max_fullres_channels)
@@ -94,7 +94,7 @@ class HierarchicalDecoder3D(nn.Module):
         high = self._run(self.mid_to_high, mid)
         high = F.interpolate(high, size=output_shape_zyx, mode="trilinear", align_corners=False)
         if high.shape[1] > self.max_fullres_channels:
-            raise AssertionError("V3 created a forbidden high-channel full-resolution tensor")
+            raise AssertionError("Decoder created a forbidden high-channel full-resolution tensor")
         high = self._run_blocks(self.high_blocks, high)
         residual = self.output(high)
         shapes = {
