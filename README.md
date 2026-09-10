@@ -1,10 +1,10 @@
 # ARP-CBCT Model
 
-This repository contains the model-only PyTorch implementation of:
+This is the official PyTorch implementation of:
 
 **ARP-CBCT: Adaptive Ray Primitive Representation for Sparse-view CBCT Reconstruction**
 
-This repository contains the complete ARP-CBCT architecture used for the reported 20-, 10-, and 5-view experiments. Training, evaluation, data-preparation code, checkpoints, and private clinical data are intentionally not included at this stage. The complete implementation will be made publicly available upon acceptance of the paper.
+This repository contains the complete ARP-CBCT architecture used for the reported 20-, 10-, and 5-view experiments. The complete implementation will be made publicly available upon acceptance of the paper.
 
 ## What Is Included
 
@@ -102,7 +102,7 @@ This repository does not currently include:
 - training, validation, or testing scripts;
 - checkpoints or experiment logs.
 
-These components will be released after paper acceptance. The current repository is intended to disclose the complete model construction and its geometry-aware forward interface.
+These components will be released after paper acceptance.
 
 ## Citation
 
