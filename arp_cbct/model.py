@@ -1,5 +1,3 @@
-"""Complete ARP-CBCT architecture used in the reported experiments."""
-
 from __future__ import annotations
 
 from dataclasses import replace
