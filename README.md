@@ -2,7 +2,7 @@
 
 This is the official PyTorch implementation of:
 
-**ARP-CBCT: Adaptive Ray Primitive Representation for Sparse-view CBCT Reconstruction**
+**Measurement-Ray-Centric Sparse-View CBCT Reconstruction**
 
 This repository contains the complete ARP-CBCT architecture used for the reported 20-, 10-, and 5-view experiments. The complete implementation will be made publicly available upon acceptance of the paper.
 
